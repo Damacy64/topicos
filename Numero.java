@@ -55,7 +55,7 @@ public class Numero {
                 r += (copian % 10) * Math.pow(10, m);
                 m++;
             }
-            copian/=10;
+            copian /= 10;
         }
         return r;
     }
@@ -91,6 +91,18 @@ public class Numero {
         return r;
     }
 
+    int determinar(int n, int m) {
+        int posición = 0, r = 0, vn = n, vm = m;
+        while (vn > 0 && vm > 0) {
+            if (vn % 10 == vm % 10) {
+                r += vn % 10 * Math.pow(10, posición);
+                posición++;
+            }
+            vn /= 10;
+            vm /= 10;
+        }
+        return r;
+    }
     public static void main(String[] args) {
         Numero numero = new Numero(154935);
         System.out.println("El numero es: " + numero.n);
@@ -99,5 +111,6 @@ public class Numero {
         System.out.println("Voltear: " + numero.voltea());
         System.out.println("Cambiar: " + numero.cambia(9, 3));
         System.out.println("Envolver: " + numero.envuelve(5, 1));
+        System.out.println("Determinar: " + numero.determinar(4254, 4287));
     }
 }
